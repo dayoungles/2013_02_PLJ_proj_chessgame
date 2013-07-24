@@ -7,19 +7,20 @@ import pieces.*;
  * 체스판 만드는 클래스.
  */
 public class Board {
+	
 	private int NumOfPawn = 0;
-	private ArrayList<Pawn> PawnList= new ArrayList<Pawn>();
+	private ArrayList<Pawn> pawnRow= new ArrayList<Pawn>();
+	ArrayList<ArrayList<Pawn>> createRow = new ArrayList<ArrayList<Pawn>>();
 	
 	Board(){
-		addPawn(new Pawn(pieces.Pawn.BLACK, pieces.Pawn.UPPER_P));//왜 인식을 못하지 상수를??
-		addPawn(new Pawn(pieces.Pawn.WHITE, pieces.Pawn.UNDER_P));
+		initialize();
 	}
 	/**
 	 * 폰을 추가하고 폰의 개수도 하나씩 올려줌.
 	 * @param  -> 문제 2-8 : Pawn 클래스를 인자로 받고 있기 때문에 다른 객체가 추가될 리 없다
 	 */
 	public void addPawn(Pawn pawn){  
-		PawnList.add(pawn);
+		pawnRow.add(pawn);
 		NumOfPawn++;
 	}
 	
@@ -37,6 +38,45 @@ public class Board {
 	 * @return
 	 */
 	public boolean hasPawn(Pawn testPawn){
-		return PawnList.contains(testPawn);
+		return pawnRow.contains(testPawn);
 	}
+	public void initialize(){
+		ArrayList<Pawn> newRow1 = new ArrayList<Pawn>();
+		createRow.add(newRow1);
+		
+		ArrayList<Pawn> newRow2 = new ArrayList<Pawn>();
+		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
+		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
+		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
+		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
+		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
+		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
+		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
+		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
+		createRow.add(newRow2);
+		
+		ArrayList<Pawn> newRow3 = new ArrayList<Pawn>();
+		createRow.add(newRow3);
+		ArrayList<Pawn> newRow4 = new ArrayList<Pawn>();
+		createRow.add(newRow4);
+		ArrayList<Pawn> newRow5 = new ArrayList<Pawn>();
+		createRow.add(newRow5);
+		ArrayList<Pawn> newRow6 = new ArrayList<Pawn>();
+		createRow.add(newRow6);
+		
+		ArrayList<Pawn> newRow7 = new ArrayList<Pawn>();
+		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		createRow.add(newRow7);
+		
+		ArrayList<Pawn> newRow8 = new ArrayList<Pawn>();
+		createRow.add(newRow8);
+	}
+	
 }

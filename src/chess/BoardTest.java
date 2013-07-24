@@ -14,15 +14,17 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testaddPawn() throws Exception {
-		assertEquals(2, myBoard.getNumOfPawn());
+		assertEquals(0, myBoard.getNumOfPawn());
 		myBoard.addPawn(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
 		myBoard.addPawn(new Pawn(Pawn.WHITE, Pawn.UPPER_P));
 		
 		//myBoard.addPawn(new Integer("7"));  -> 에러 발생 확인
 		 
-		assertEquals(4, myBoard.getNumOfPawn());
+		assertEquals(2, myBoard.getNumOfPawn());
 		assertEquals(true, myBoard.hasPawn(new Pawn(Pawn.BLACK, Pawn.UPPER_P)));
 	}
-	
+	public void testCreate() throws Exception {
+		
+	}
 
 }
