@@ -78,5 +78,12 @@ public class Board {
 		ArrayList<Pawn> newRow8 = new ArrayList<Pawn>();
 		createRow.add(newRow8);
 	}
+	public String getRowString(int index) {
+		StringBuilder buffer = new StringBuilder();
+		for( int i = 0; i < 8 ; i++)
+			buffer.append(createRow.get(index).get(i).getSymbol());
+		
+		return buffer.toString();
+	}
 	
 }

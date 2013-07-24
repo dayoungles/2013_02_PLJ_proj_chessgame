@@ -20,7 +20,7 @@ public class Pawn {
 		this.symbol = symbol;
 	}
 	
-	String getSymbol() {
+	public String getSymbol() {
 		return symbol;
 	}
 	
