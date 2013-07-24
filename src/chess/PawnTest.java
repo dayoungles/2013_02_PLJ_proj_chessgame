@@ -10,9 +10,13 @@ public class PawnTest extends TestCase {
 		String pawnColor = myPawn.color;
 		assertEquals(WHITE, pawnColor);
 
-		Pawn mySecondPawn = new Pawn(BLACK);
+		Pawn mySecondPawn = new Pawn(BLACK, "P");
 		String mySecondpawnColor = mySecondPawn.color;
 		assertEquals(BLACK, mySecondpawnColor);
+		
+		Pawn myThirdPawn = new Pawn(WHITE, "p");
+		String myThirdPawnSymbol= myThirdPawn.getSymbol();
+		assertEquals("p", myThirdPawnSymbol);
 	}
 	
 	public void testCreate2() throws Exception {

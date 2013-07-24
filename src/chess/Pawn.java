@@ -8,13 +8,15 @@ public class Pawn {
 	private static final String BLACK = "black";
 	
 	String color;
+	String symbol;
 	
 	Pawn(){
 		color = "white";
 	}
 	
-	Pawn(String color){
+	Pawn(String color, String symbol){
 		this.color = color;
+		this.symbol= symbol;
 	}
 
 	@Override
@@ -40,6 +42,10 @@ public class Pawn {
 		} else if (!color.equals(other.color))
 			return false;
 		return true;
+	}
+
+	public String getSymbol() {
+		return symbol;
 	}
 
 }
