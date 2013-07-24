@@ -42,6 +42,9 @@ public class Board {
 	}
 	public void initialize(){
 		ArrayList<Pawn> newRow1 = new ArrayList<Pawn>();
+		for (int i = 0; i <8 ; i++){
+			newRow1.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
+		}
 		createRow.add(newRow1);
 		
 		ArrayList<Pawn> newRow2 = new ArrayList<Pawn>();
@@ -80,8 +83,11 @@ public class Board {
 	}
 	public String getRowString(int index) {
 		StringBuilder buffer = new StringBuilder();
-		for( int i = 0; i < 8 ; i++)
-			buffer.append(createRow.get(index).get(i).getSymbol());
+		//for (int j = 0; j <8 ; j ++){
+			for( int i = 0; i < 8 ; i++)
+				buffer.append(createRow.get(index).get(i).getSymbol());
+		//}
+		
 		
 		return buffer.toString();
 	}

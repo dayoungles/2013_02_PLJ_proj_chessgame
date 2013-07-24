@@ -24,9 +24,11 @@ public class BoardTest extends TestCase {
 		assertEquals(true, myBoard.hasPawn(new Pawn(Pawn.BLACK, Pawn.UPPER_P)));
 	}
 	public void testCreate() throws Exception {
+		assertEquals("........", myBoard.getRowString(0));
 		assertEquals("pppppppp", myBoard.getRowString(1));
 		assertEquals("PPPPPPPP", myBoard.getRowString(6));
 	}
+
 
 	
 
