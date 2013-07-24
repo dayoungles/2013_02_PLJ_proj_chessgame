@@ -7,7 +7,7 @@ import pieces.*;
  * 체스판 만드는 클래스.
  */
 public class Board {
-	
+	static final String NEWLINE = System.getProperty("line.separator");
 	private int NumOfPawn = 0;
 	private ArrayList<Pawn> pawnRow= new ArrayList<Pawn>();
 	ArrayList<ArrayList<Pawn>> createRow = new ArrayList<ArrayList<Pawn>>();
@@ -59,12 +59,24 @@ public class Board {
 		createRow.add(newRow2);
 		
 		ArrayList<Pawn> newRow3 = new ArrayList<Pawn>();
+		for (int i = 0; i <8 ; i++){
+			newRow3.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
+		}
 		createRow.add(newRow3);
 		ArrayList<Pawn> newRow4 = new ArrayList<Pawn>();
+		for (int i = 0; i <8 ; i++){
+			newRow4.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
+		}
 		createRow.add(newRow4);
 		ArrayList<Pawn> newRow5 = new ArrayList<Pawn>();
+		for (int i = 0; i <8 ; i++){
+			newRow5.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
+		}
 		createRow.add(newRow5);
 		ArrayList<Pawn> newRow6 = new ArrayList<Pawn>();
+		for (int i = 0; i <8 ; i++){
+			newRow6.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
+		}
 		createRow.add(newRow6);
 		
 		ArrayList<Pawn> newRow7 = new ArrayList<Pawn>();
@@ -79,6 +91,9 @@ public class Board {
 		createRow.add(newRow7);
 		
 		ArrayList<Pawn> newRow8 = new ArrayList<Pawn>();
+		for (int i = 0; i <8 ; i++){
+			newRow8.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
+		}
 		createRow.add(newRow8);
 	}
 	public String getRowString(int index) {
@@ -87,9 +102,17 @@ public class Board {
 			for( int i = 0; i < 8 ; i++)
 				buffer.append(createRow.get(index).get(i).getSymbol());
 		//}
-		
-		
 		return buffer.toString();
 	}
-	
+	public void printChessBoard(){
+		StringBuilder buffer = new StringBuilder();//for문 못 만들어서 계속 헤맴.
+		for (int j = 0; j <8 ; j ++){
+			for( int i = 0; i < 8 ; i++){
+				buffer.append(createRow.get(j).get(i).getSymbol());
+			}
+			buffer.append(NEWLINE);
+		}
+		System.out.println(buffer.toString());
+	}
+
 }

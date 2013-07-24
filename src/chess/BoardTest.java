@@ -27,8 +27,9 @@ public class BoardTest extends TestCase {
 		assertEquals("........", myBoard.getRowString(0));
 		assertEquals("pppppppp", myBoard.getRowString(1));
 		assertEquals("PPPPPPPP", myBoard.getRowString(6));
+		myBoard.printChessBoard();
 	}
-
+	
 
 	
 
