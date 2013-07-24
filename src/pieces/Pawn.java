@@ -1,22 +1,29 @@
 package pieces;
 /**
- * @author kimminhyeok
  * 폰 만드는 클래스.
  */
 public class Pawn {
-	private static final String WHITE = "white";
-	private static final String BLACK = "black";
+	public static final String WHITE = "white";
+	public static final String BLACK = "black";
+	public static final String UPPER_P = "P";
+	public static final String UNDER_P = "p";
 	
 	String color;
+	String symbol;
 	
 	public Pawn(){
 		color = "white";
 	}
 	
-	public Pawn(String color){
+	public Pawn(String color, String symbol){
 		this.color = color;
+		this.symbol = symbol;
 	}
-
+	
+	String getSymbol() {
+		return symbol;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

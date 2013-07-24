@@ -4,8 +4,8 @@ import junit.framework.TestCase;
 
 
 public class BoardTest extends TestCase {
-	private static final String WHITE = "white";
-	private static final String BLACK = "black";
+	//private static final String WHITE = "white";
+	//private static final String BLACK = "black";
 	
 	private Board myBoard;
 	
@@ -14,13 +14,14 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testaddPawn() throws Exception {
-		myBoard.addPawn(new Pawn(BLACK));
-		myBoard.addPawn(new Pawn(WHITE));
+		assertEquals(2, myBoard.getNumOfPawn());
+		myBoard.addPawn(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
+		myBoard.addPawn(new Pawn(Pawn.WHITE, Pawn.UPPER_P));
 		
 		//myBoard.addPawn(new Integer("7"));  -> 에러 발생 확인
-		
-		assertEquals(2, myBoard.getNumOfPawn());
-		assertEquals(true, myBoard.hasPawn(new Pawn(BLACK)));
+		 
+		assertEquals(4, myBoard.getNumOfPawn());
+		assertEquals(true, myBoard.hasPawn(new Pawn(Pawn.BLACK, Pawn.UPPER_P)));
 	}
 	
 
