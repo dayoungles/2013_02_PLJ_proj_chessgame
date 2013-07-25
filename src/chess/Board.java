@@ -31,9 +31,7 @@ public class Board {
 	 * @param testPawn
 	 * @return
 	 */
-//	public boolean hasPawn(Pawn testPawn){
-//		return pawnRow.contains(testPawn);
-//	}
+
 	public void initialize(){
 		
 		
@@ -64,5 +62,5 @@ public class Board {
 			}
 		System.out.println(buffer.toString());
 	}
-
+//git error test
 }

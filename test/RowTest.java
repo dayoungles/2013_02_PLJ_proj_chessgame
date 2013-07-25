@@ -1,6 +1,6 @@
 import chess.Row;
 import junit.framework.TestCase;
-
+//git error test
 
 public class RowTest extends TestCase {
 	static final String EMPTY_ROW = "........";

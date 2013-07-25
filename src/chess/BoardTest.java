@@ -20,7 +20,7 @@ public class BoardTest extends TestCase {
 		myBoard.printChessBoard();
 	}
 	
-
+//git error test
 	
 
 }
