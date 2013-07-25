@@ -9,20 +9,14 @@ import pieces.*;
 public class Board {
 	static final String NEWLINE = System.getProperty("line.separator");
 	private int NumOfPawn = 0;
-	private ArrayList<Pawn> pawnRow= new ArrayList<Pawn>();
-	ArrayList<ArrayList<Pawn>> createRow = new ArrayList<ArrayList<Pawn>>();
+	//ArrayList<Pawn> pawnRow= new ArrayList<Pawn>();
+	//private Row row = new Row();
+	ArrayList<Row> rows = new ArrayList<Row>();
 	
 	Board(){
 		initialize();
 	}
-	/**
-	 * 폰을 추가하고 폰의 개수도 하나씩 올려줌.
-	 * @param  -> 문제 2-8 : Pawn 클래스를 인자로 받고 있기 때문에 다른 객체가 추가될 리 없다
-	 */
-	public void addPawn(Pawn pawn){  
-		pawnRow.add(pawn);
-		NumOfPawn++;
-	}
+
 	
 	/**
 	 * 폰의 개수를 반환하는 메소
@@ -37,81 +31,37 @@ public class Board {
 	 * @param testPawn
 	 * @return
 	 */
-	public boolean hasPawn(Pawn testPawn){
-		return pawnRow.contains(testPawn);
-	}
+//	public boolean hasPawn(Pawn testPawn){
+//		return pawnRow.contains(testPawn);
+//	}
 	public void initialize(){
-		ArrayList<Pawn> newRow1 = new ArrayList<Pawn>();
-		for (int i = 0; i <8 ; i++){
-			newRow1.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
-		}
-		createRow.add(newRow1);
 		
-		ArrayList<Pawn> newRow2 = new ArrayList<Pawn>();
-		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
-		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
-		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
-		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
-		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
-		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
-		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
-		newRow2.add(new Pawn(Pawn.WHITE,Pawn.UNDER_P));
-		createRow.add(newRow2);
 		
-		ArrayList<Pawn> newRow3 = new ArrayList<Pawn>();
-		for (int i = 0; i <8 ; i++){
-			newRow3.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
+		for (int i = 0; i <8 ; i ++){
+			Row newRow = new Row();
+			if (i == 1){
+				newRow.initWhite();
+			} else if (i ==6){
+				newRow.initBlack();
+			} else {
+				newRow.initEmpty();
+			}
+			rows.add(newRow);
 		}
-		createRow.add(newRow3);
-		ArrayList<Pawn> newRow4 = new ArrayList<Pawn>();
-		for (int i = 0; i <8 ; i++){
-			newRow4.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
-		}
-		createRow.add(newRow4);
-		ArrayList<Pawn> newRow5 = new ArrayList<Pawn>();
-		for (int i = 0; i <8 ; i++){
-			newRow5.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
-		}
-		createRow.add(newRow5);
-		ArrayList<Pawn> newRow6 = new ArrayList<Pawn>();
-		for (int i = 0; i <8 ; i++){
-			newRow6.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
-		}
-		createRow.add(newRow6);
-		
-		ArrayList<Pawn> newRow7 = new ArrayList<Pawn>();
-		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
-		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
-		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
-		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
-		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
-		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
-		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
-		newRow7.add(new Pawn(Pawn.BLACK, Pawn.UPPER_P));
-		createRow.add(newRow7);
-		
-		ArrayList<Pawn> newRow8 = new ArrayList<Pawn>();
-		for (int i = 0; i <8 ; i++){
-			newRow8.add(new Pawn(Pawn.NOTHING, Pawn.NO_SYMBOL));
-		}
-		createRow.add(newRow8);
 	}
 	public String getRowString(int index) {
+		Row row = rows.get(index);
 		StringBuilder buffer = new StringBuilder();
-		//for (int j = 0; j <8 ; j ++){
-			for( int i = 0; i < 8 ; i++)
-				buffer.append(createRow.get(index).get(i).getSymbol());
-		//}
+//			for( int i = 0; i < 8 ; i++)
+//				buffer.append(rows.get(index).getSymbol());
+		buffer.append(row.printLine());
 		return buffer.toString();
 	}
 	public void printChessBoard(){
 		StringBuilder buffer = new StringBuilder();//for문 못 만들어서 계속 헤맴.
-		for (int j = 0; j <8 ; j ++){
 			for( int i = 0; i < 8 ; i++){
-				buffer.append(createRow.get(j).get(i).getSymbol());
+				buffer.append(getRowString(i)+NEWLINE);
 			}
-			buffer.append(NEWLINE);
-		}
 		System.out.println(buffer.toString());
 	}
 
